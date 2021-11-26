@@ -18,27 +18,24 @@ export default {
 
   components: {
     Preview,
-    axios,
   },
 
   mounted(){
-    this.get.Api();
+    this.getApi();
   },
 
   data(){
     return {
       preview: [],
-
-      urlAxios: 'https://flynn.boolean.careers/exercises/api/array/music',
+      // urlAxios: 'https://flynn.boolean.careers/exercises/api/array/music',
     }
   },
 
   methods: {
     getApi(){
-      axios.get(this.urlAxios)
-      .then((response) => {
-        //console.log(response);
-        this.preview = response.data;
+      axios.get('https://flynn.boolean.careers/exercises/api/array/music').then((response) => {
+        console.log(response);
+        this.preview = response.data.response;
       })
       .catch((error) =>{
         console.log(error);

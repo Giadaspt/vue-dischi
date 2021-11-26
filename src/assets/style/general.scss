@@ -10,7 +10,7 @@ body {
   background-color: $bgGeneral;
 }
 
-.container {
+.container-fluid, .container {
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
@@ -19,6 +19,15 @@ img {
   width: 100%;
 }
 
-h5 {
+h6 {
   text-transform: uppercase;
+  padding-bottom: 24px;
+
+}
+
+p {
+  color: darken($white, 50%);
+  font-size: 14px;
+  margin-block-start: 0 !important;
+  margin-block-end: 0 !important;
 }
