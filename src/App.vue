@@ -7,7 +7,6 @@
 
 <script>
 import AllPreview from './components/AllPreview.vue'
-// import axios from "axios";
 import Header from "./components/Header.vue"
 
 export default {
@@ -15,7 +14,6 @@ export default {
   components: {
     Header,
     AllPreview,
-    // axios
   }
 }
 </script>

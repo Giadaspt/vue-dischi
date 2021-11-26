@@ -1,5 +1,5 @@
 <template>
-  <header class="container">
+  <header>
     <div class="row d-flex ">
       <div class="logo">
         <img :src="logo" alt="Logo Spotify">
