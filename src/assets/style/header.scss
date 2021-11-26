@@ -1,0 +1,14 @@
+
+
+header {
+  background-color:  lighten($bgGeneral, 10%);
+  padding: 0 !important;
+}
+
+
+.logo {
+  @include center ('align') ;
+  @include lateralSpace ('both');
+  width: 70px;
+  height: 70px;
+}

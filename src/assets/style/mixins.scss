@@ -1,0 +1,29 @@
+@mixin center ($type: 'both'){
+  display: flex;
+  @if $type == 'justify' {
+    justify-content: center;
+  } @else if $type == 'align' {
+    align-items: center;
+  } @else if $type == 'both'{
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+}
+
+
+@mixin lateralSpace ($type:'both') {
+  @if $type == 'pad'{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  } @else if $type == 'marg'{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  } @else if $type == 'both'{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+}

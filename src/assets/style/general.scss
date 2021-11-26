@@ -3,3 +3,18 @@
 @import '~@fontsource/nunito/index.css';
 @import '~@fontsource/nunito/600.css';
 @import '~@fontsource/nunito/800.css';
+
+
+body {
+  font-family: 'Nunito';
+  background-color: $bgGeneral;
+}
+
+.container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+img {
+  width: 100%;
+}
