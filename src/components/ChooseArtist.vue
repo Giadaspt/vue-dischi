@@ -1,25 +1,25 @@
 <template>
   <div class=" col-3 d-flex align-items-center justify-content-end ">
     <select
-      v-model="category"
-      @change="$emit('chooseCategory', category)"
+      v-model="categoryArtist"
+      @change="$emit('chooseCategoryArtist', categoryArtist)"
       class="choose" >
       <option >Tutti gli album</option>
-      <option>Rock</option>
-      <option>Pop</option>
-      <option>Jazz</option>
-      <option>Metal</option>
+      <option>Bon Jovi</option>
+      <option>Queen</option>
+      <option>Sting</option>
     </select>
+  
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Choose',
+  name: 'ChooseArtist',
 
   data(){
     return{
-      category: '',
+      categoryArtist: '',
     }
   }
 }

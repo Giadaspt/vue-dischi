@@ -1,7 +1,11 @@
 <template>
   <div class="container-fluid">
-    <Header/>
-    <All-Preview/>
+    <Header
+      @chooseCategory="performCategory"
+     />
+    <All-Preview
+     :choosed=" performCategory"
+    />
   </div>
 </template>
 
@@ -15,6 +19,20 @@ export default {
   components: {
     Header,
     AllPreview,
+  },
+
+  data(){
+    return {
+      category:'',
+    }
+  },
+
+  methods:{
+    performCategory(text){
+      console.log('io sono app',text);
+      this.textcategoryChoose= text;
+
+    },
   }
 }
 </script>

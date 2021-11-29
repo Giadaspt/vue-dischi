@@ -2,6 +2,8 @@
   <div class="row">
     <Choose  
       @chooseCategory="performCategory"/>
+    <ChooseArtist
+      @chooseCategoryArtist="performCategory"/>
     <Preview
       v-for="(card, index) in filteredCategories" :key="index"
       :previewShow="card"
@@ -13,14 +15,20 @@
 <script>
 import Preview from './Preview.vue';
 import Choose from './Choose.vue';
+import ChooseArtist from './ChooseArtist.vue';
 import axios from 'axios';
 
 export default {
   name: "AllPreview",
 
+  props:{
+    choosed: Object,
+  },
+
   components: {
     Preview,
     Choose,
+    ChooseArtist,
   },
 
   mounted(){
@@ -63,7 +71,7 @@ export default {
     },
 
     performCategory(text){
-      console.log('io sono text',text);
+      console.log('io sono all preview',text);
       this.textcategoryChoose= text;
       this.getApi()
     },

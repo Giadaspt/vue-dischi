@@ -4,25 +4,38 @@
       <div class="logo">
         <img :src="logo" alt="Logo Spotify">
       </div>
-      <!-- <Choose/> -->
+      <!-- <Choose  
+        @chooseCategory="performCategory"
+        v-model="category"
+        @change="$emit('chooseCategory', category)"/>
+      <ChooseArtist
+        @chooseCategoryArtist="performCategory"
+        v-model="categoryArtist"
+        @change="$emit('chooseCategoryArtist', categoryArtist)"/>
+      /> -->
     </div>
   </header>
 </template>
 
 <script>
-// import Choose from './Choose.vue'
+// import Choose from './Choose.vue';
+// import ChooseArtist from './ChooseArtist.vue';
  
 export default {
   name: "Header",
   // components:{
   //   Choose,
+  //   ChooseArtist,
   // },
   
   data(){
     return {
-      logo: require("../assets/img/logo-spostify.png")
+      logo: require("../assets/img/logo-spostify.png"),
+      category: '',
+      categoryArtist:'',
+      textcategoryChoose: ''
     }
-  }
+  },
 }
 </script>
 
