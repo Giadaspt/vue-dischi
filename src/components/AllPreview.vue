@@ -51,7 +51,9 @@ export default {
       return this.preview.filter( a =>{
         if (this.textcategoryChoose  === a.genre){
           return a.genre
-        } else if (this.textcategoryChoose  === a.author){
+        } 
+        
+        if (this.textcategoryChoose  === a.author){
           return this.getAuthor()
         }
       })
