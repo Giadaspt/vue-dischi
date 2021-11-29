@@ -41,8 +41,13 @@ export default {
         return this.preview
       }
       return this.preview.filter( a =>{
-        return this.textcategoryChoose  === a.genre;
+        if (this.textcategoryChoose  === a.genre){
+          return a.genre
+        } else if (this.textcategoryChoose  === a.author){
+          return this.getAuthor()
+        }
       })
+        
     }
   },
 
@@ -61,6 +66,14 @@ export default {
       console.log('io sono text',text);
       this.textcategoryChoose= text;
       this.getApi()
+    },
+
+    getAuthor(){
+      return this.preview.filter(a =>{
+        if(this.textcategoryChoose  === a.author){
+          return a.author;
+        }
+      })
     }
   }
 }

@@ -9,6 +9,9 @@
       <option>Pop</option>
       <option>Jazz</option>
       <option>Metal</option>
+      <option>Bon Jovi</option>
+      <option>Queen</option>
+      <option>Sting</option>
     </select>
   </div>
 </template>
@@ -16,6 +19,9 @@
 <script>
 export default {
   name: 'Choose',
+  props: {
+    previewShow: Object,
+  },
 
   data(){
     return{
