@@ -1,11 +1,14 @@
 <template>
   <div class=" col-3 d-flex align-items-center justify-content-end ">
-    <select class="choose  ">
-      <option selected>Seleziona il tuo genere musicale</option>
-      <option value="">Rock</option>
-      <option value="">Pop</option>
-      <option value="">Jazz</option>
-      <option value="">Metal</option>
+    <select
+      v-model="category"
+      @click="$emit('chooseCategory', category)"
+      class="choose">
+      <option selected >Seleziona il tuo genere musicale</option>
+      <option>Rock</option>
+      <option>Pop</option>
+      <option>Jazz</option>
+      <option>Metal</option>
     </select>
   </div>
 </template>
@@ -13,6 +16,12 @@
 <script>
 export default {
   name: 'Choose',
+
+  data(){
+    return{
+      category: '',
+    }
+  }
 }
 </script>
 

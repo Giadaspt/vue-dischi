@@ -4,19 +4,19 @@
       <div class="logo">
         <img :src="logo" alt="Logo Spotify">
       </div>
-      <Choose/>
+      <!-- <Choose/> -->
     </div>
   </header>
 </template>
 
 <script>
-import Choose from './Choose.vue'
+// import Choose from './Choose.vue'
  
 export default {
   name: "Header",
-  components:{
-    Choose,
-  },
+  // components:{
+  //   Choose,
+  // },
   
   data(){
     return {

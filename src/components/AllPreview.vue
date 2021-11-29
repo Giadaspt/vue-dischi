@@ -1,8 +1,9 @@
 <template>
   <div class="row">
-
+    <Choose  
+      @chooseCategory="performCategory"/>
     <Preview
-      v-for="(card, index) in preview" :key="index"
+      v-for="(card, index) in filteredCategories" :key="index"
       :previewShow="card"
     />
   
@@ -10,7 +11,8 @@
 </template>
 
 <script>
-import Preview from './Preview.vue'
+import Preview from './Preview.vue';
+import Choose from './Choose.vue';
 import axios from 'axios';
 
 export default {
@@ -18,6 +20,7 @@ export default {
 
   components: {
     Preview,
+    Choose,
   },
 
   mounted(){
@@ -28,18 +31,36 @@ export default {
     return {
       preview: [],
       urlAxios: 'https://flynn.boolean.careers/exercises/api/array/music',
+      textcategoryChoose:'',
+    }
+  },
+
+  computed:{
+    filteredCategories(){
+      if(this.textcategoryChoose === 'Seleziona il tuo genere musicale'){
+        return this.preview
+      }
+      return this.preview.filter( a =>{
+        return this.textcategoryChoose  === a.genre;
+      })
     }
   },
 
   methods: {
     getApi(){
       axios.get(this.urlAxios).then((response) => {
-        console.log(response);
+        //console.log(response);
         this.preview = response.data.response;
       })
       .catch((error) =>{
         console.log(error);
       })
+    },
+
+    performCategory(text){
+      console.log('io sono text',text);
+      this.textcategoryChoose= text;
+      this.getApi()
     }
   }
 }
