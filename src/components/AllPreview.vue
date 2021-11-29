@@ -37,7 +37,7 @@ export default {
 
   computed:{
     filteredCategories(){
-      if(this.textcategoryChoose === 'Seleziona il tuo genere musicale'){
+      if(this.textcategoryChoose === 'Tutti gli album'){
         return this.preview
       }
       return this.preview.filter( a =>{

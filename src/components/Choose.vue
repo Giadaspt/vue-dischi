@@ -3,8 +3,8 @@
     <select
       v-model="category"
       @click="$emit('chooseCategory', category)"
-      class="choose">
-      <option selected >Seleziona il tuo genere musicale</option>
+      class="choose" >
+      <option >Tutti gli album</option>
       <option>Rock</option>
       <option>Pop</option>
       <option>Jazz</option>
