@@ -27,13 +27,13 @@ export default {
   data(){
     return {
       preview: [],
-      // urlAxios: 'https://flynn.boolean.careers/exercises/api/array/music',
+      urlAxios: 'https://flynn.boolean.careers/exercises/api/array/music',
     }
   },
 
   methods: {
     getApi(){
-      axios.get('https://flynn.boolean.careers/exercises/api/array/music').then((response) => {
+      axios.get(this.urlAxios).then((response) => {
         console.log(response);
         this.preview = response.data.response;
       })
