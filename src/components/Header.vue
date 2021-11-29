@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div class="row d-flex align-items-center justify-content-between">
+    <div class="row d-flex justify-content-between">
       <div class="logo">
         <img :src="logo" alt="Logo Spotify">
       </div>
@@ -10,15 +10,14 @@
 </template>
 
 <script>
-import Choose from './components/Choose.vue';
+import Choose from './Choose.vue'
  
 export default {
   name: "Header",
-
-  components: {
+  components:{
     Choose,
   },
-
+  
   data(){
     return {
       logo: require("../assets/img/logo-spostify.png")
