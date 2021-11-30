@@ -24,7 +24,6 @@ export default {
   data(){
     return {
       preview: [],
-      textcategoryChoose:'',
       urlAxios: 'https://flynn.boolean.careers/exercises/api/array/music',
       genreCategory: [],
     }
@@ -36,11 +35,11 @@ export default {
 
   computed:{
     filteredCategories(){
-      if(this.textcategoryChoose === ''){
-        return this.preview
+      if(this.selection === ''){
+        return this.preview;
       }
       return this.preview.filter( a =>{
-        return a.genre === this.textcategoryChoose
+        return a.genre === this.selection;
         
         // if (this.textcategoryChoose  === a.author){
         //   return this.getAuthor()

@@ -2,11 +2,12 @@
   <div class="container-fluid">
 
     <Header
-      @chooseCategory="performCategory" :genreMusicCategory="musicCategory"/>
+      @chooseCategory="performCategory" 
+      :genreMusicCategory="musicCategory"/>
 
     <AllPreview
-     :selection="categoryChoose"
-     @musicGenre="genreMusic"/>
+      :selection="categoryChoose"
+      @musicGenre="genreMusic"/>
 
   </div>
 </template>
