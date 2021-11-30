@@ -5,17 +5,17 @@
         <img :src="logo" alt="Logo Spotify">
       </div>
       <div class=" col-3 d-flex align-items-center justify-content-end ">
-      <select
-        v-model="category"
-        @change="$emit('chooseCategory', category)"
-        class="choose" >
-        <option value="" selected>Tutti gli album</option>
-        <option value="Rock">Rock</option>
-        <option value="Pop">Pop</option>
-        <option value="Jazz">Jazz</option>
-        <option value="Metal">Metal</option>
-      </select>
-  </div>
+        <select
+          v-model="category"
+          @change="$emit('chooseCategory', category)"
+          class="choose" >
+          <option value="" selected>Tutti gli album</option>
+          <option 
+          v-for="(category, index) in genreMusicCategory"
+          :key="index"
+          :value="category">{{category}}</option>
+        </select>
+      </div>
     </div>
   </header>
 </template>
@@ -26,6 +26,10 @@
  
 export default {
   name: "Header",
+
+  props:{
+    genreMusicCategory: Array,
+  },
   
   data(){
     return {

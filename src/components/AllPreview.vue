@@ -2,9 +2,7 @@
   <div class="row">
     <Preview
       v-for="(card, index) in filteredCategories" :key="index"
-      :previewShow="card"
-    />
-  
+      :previewShow="card"/>
   </div>
 </template>
 
@@ -16,7 +14,7 @@ export default {
   name: "AllPreview",
 
   props:{
-    choosed: String,
+    selection: String,
   },
 
   components: {
@@ -26,8 +24,9 @@ export default {
   data(){
     return {
       preview: [],
-      urlAxios: 'https://flynn.boolean.careers/exercises/api/array/music',
       textcategoryChoose:'',
+      urlAxios: 'https://flynn.boolean.careers/exercises/api/array/music',
+      genreCategory: [],
     }
   },
 
@@ -41,7 +40,7 @@ export default {
         return this.preview
       }
       return this.preview.filter( a =>{
-        return this.textcategoryChoose === a.genre
+        return a.genre === this.textcategoryChoose
         
         // if (this.textcategoryChoose  === a.author){
         //   return this.getAuthor()
@@ -56,6 +55,14 @@ export default {
       axios.get(this.urlAxios).then((response) => {
         //console.log(response);
         this.preview = response.data.response;
+
+        this.preview.forEach(a =>{
+          if(!this.genreCategory.includes(a.genre)){
+            this.genreCategory.push(a.genre)
+          }
+        })
+
+        this.$emit('musicGenre', this.genreCategory)
       })
       .catch((error) =>{
         console.log(error);

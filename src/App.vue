@@ -2,17 +2,18 @@
   <div class="container-fluid">
 
     <Header
-      @chooseCategory="performCategory"/>
+      @chooseCategory="performCategory" :genreMusicCategory="musicCategory"/>
 
-    <All-Preview
-     :choosed="textcategoryChoose"/>
+    <AllPreview
+     :selection="categoryChoose"
+     @musicGenre="genreMusic"/>
 
   </div>
 </template>
 
 <script>
-import AllPreview from './components/AllPreview.vue'
 import Header from './components/Header.vue'
+import AllPreview from './components/AllPreview.vue'
 
 
 export default {
@@ -24,15 +25,22 @@ export default {
 
   data(){
     return {
-      textcategoryChoose: '',
+      categoryChoose: '',
+      musicCategory:[],
     }
   },
 
   methods:{
     performCategory(text){
+      this.categoryChoose = text;
       console.log('io sono app',text);
-      this.textcategoryChoose = text;
+      console.log( this.categoryChoose);
     },
+
+    genreMusic(genre){
+      this.musicCategory = genre
+      console.log(genre);
+    }
   }
 }
 </script>
