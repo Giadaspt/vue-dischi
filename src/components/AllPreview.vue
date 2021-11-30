@@ -1,9 +1,5 @@
 <template>
   <div class="row">
-    <Choose  
-      @chooseCategory="performCategory"/>
-    <ChooseArtist
-      @chooseCategoryArtist="performCategory"/>
     <Preview
       v-for="(card, index) in filteredCategories" :key="index"
       :previewShow="card"
@@ -14,27 +10,19 @@
 
 <script>
 import Preview from './Preview.vue';
-import Choose from './Choose.vue';
-import ChooseArtist from './ChooseArtist.vue';
 import axios from 'axios';
 
 export default {
   name: "AllPreview",
 
   props:{
-    choosed: Object,
+    choosed: String,
   },
 
   components: {
     Preview,
-    Choose,
-    ChooseArtist,
   },
-
-  mounted(){
-    this.getApi();
-  },
-
+  
   data(){
     return {
       preview: [],
@@ -43,19 +31,21 @@ export default {
     }
   },
 
+  mounted(){
+    this.getApi();
+  },
+
   computed:{
     filteredCategories(){
-      if(this.textcategoryChoose === 'Tutti gli album'){
+      if(this.textcategoryChoose === ''){
         return this.preview
       }
       return this.preview.filter( a =>{
-        if (this.textcategoryChoose  === a.genre){
-          return a.genre
-        } 
+        return this.textcategoryChoose === a.genre
         
-        if (this.textcategoryChoose  === a.author){
-          return this.getAuthor()
-        }
+        // if (this.textcategoryChoose  === a.author){
+        //   return this.getAuthor()
+        // }
       })
         
     }
@@ -72,19 +62,13 @@ export default {
       })
     },
 
-    performCategory(text){
-      console.log('io sono all preview',text);
-      this.textcategoryChoose= text;
-      this.getApi()
-    },
-
-    getAuthor(){
-      return this.preview.filter(a =>{
-        if(this.textcategoryChoose  === a.author){
-          return a.author;
-        }
-      })
-    }
+        // getAuthor(){
+    //   return this.preview.filter(a =>{
+    //     if(this.textcategoryChoose  === a.author){
+    //       return a.author;
+    //     }
+    //   })
+    // }
   }
 }
 </script>

@@ -4,18 +4,17 @@
       v-model="categoryArtist"
       @change="$emit('chooseCategoryArtist', categoryArtist)"
       class="choose" >
-      <option >Tutti gli album</option>
-      <option>Bon Jovi</option>
-      <option>Queen</option>
-      <option>Sting</option>
-      <option>Steve Gadd Band</option>
-      <option>Steve Gadd Band</option>
-      <option>Iron Maiden</option>
-      <option>Eric Clapton</option>
-      <option>Deep Purple</option>
-      <option>Metallica</option>
-      <option>Dave Weckl</option>
-      <option>Michael Jacjson</option>
+      <option value="" selected>Tutti gli album</option>
+      <option value="Bon Jovi">Bon Jovi</option>
+      <option value="Queen">Queen</option>
+      <option value="Sting">Sting</option>
+      <option value="Steve Gadd Band">Steve Gadd Band</option>
+      <option value="Iron Maiden">Iron Maiden</option>
+      <option value="Eric Clapton">Eric Clapton</option>
+      <option value="Deep Purple">Deep Purple</option>
+      <option value="Metallica">Metallica</option>
+      <option value="Dave Weckl">Dave Weckl</option>
+      <option value="Michael Jacjson">Michael Jacjson</option>
     </select>
   
   </div>

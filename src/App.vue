@@ -1,11 +1,12 @@
 <template>
   <div class="container-fluid">
+
     <Header
-      @chooseCategory="performCategory"
-     />
+      @chooseCategory="performCategory"/>
+
     <All-Preview
-     :choosed=" performCategory"
-    />
+     :choosed="textcategoryChoose"/>
+
   </div>
 </template>
 
@@ -23,15 +24,14 @@ export default {
 
   data(){
     return {
-      category:'',
+      textcategoryChoose: '',
     }
   },
 
   methods:{
     performCategory(text){
       console.log('io sono app',text);
-      this.textcategoryChoose= text;
-
+      this.textcategoryChoose = text;
     },
   }
 }
