@@ -15,6 +15,7 @@ export default {
 
   props:{
     selection: String,
+    select: String,
   },
 
   components: {
@@ -26,6 +27,7 @@ export default {
       preview: [],
       urlAxios: 'https://flynn.boolean.careers/exercises/api/array/music',
       genreCategory: [],
+      genreArtist: [],
     }
   },
 
@@ -35,18 +37,19 @@ export default {
 
   computed:{
     filteredCategories(){
-      if(this.selection === ''){
+      if(this.selection === '' && this.select === '' ){
         return this.preview;
       }
       return this.preview.filter( a =>{
-        return a.genre === this.selection;
-        
-        // if (this.textcategoryChoose  === a.author){
-        //   return this.getAuthor()
-        // }
+        let genre = a.genre  === this.selection;
+        let author = a.author === this.select;
+        let all = genre + author;
+
+        return all ;
+    
       })
         
-    }
+    },
   },
 
   methods: {
@@ -56,27 +59,40 @@ export default {
         this.preview = response.data.response;
 
         this.preview.forEach(a =>{
-          if(!this.genreCategory.includes(a.genre)){
-            this.genreCategory.push(a.genre)
-          }
+          if(!this.genreCategory.includes(a.genre) && !this.genreArtist.includes(a.author)){
+            this.genreArtist.push(a.author);
+            this.genreCategory.push(a.genre);
+          } 
         })
 
-        this.$emit('musicGenre', this.genreCategory)
+        this.$emit('musicGenre', this.genreCategory);
+        this.$emit('musicArtist', this.genreArtist);
+         
       })
       .catch((error) =>{
         console.log(error);
       })
     },
+  },
+  //   getApiArtist(){
+  //     axios.get(this.urlAxios).then((response) => {
+  //       //console.log(response);
+  //       this.preview = response.data.response;
 
-        // getAuthor(){
-    //   return this.preview.filter(a =>{
-    //     if(this.textcategoryChoose  === a.author){
-    //       return a.author;
-    //     }
-    //   })
-    // }
-  }
-}
+  //       this.preview.forEach(e => {
+  //         if(!this.genreArtist.includes(e.author)){
+  //           this.genreArtist.push(e.author)
+  //         }
+  //       })
+ 
+  //       this.$emit('musicArtist', this.genreArtist);
+  //     })
+  //     .catch((error) =>{
+  //       console.log(error);
+  //     })
+  // },
+} 
+
 </script>
 
 <style lang="scss" scoped>

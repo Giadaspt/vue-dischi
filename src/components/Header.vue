@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div class="row d-flex justify-content-between">
+    <div class="row ">
       <div class="logo">
         <img :src="logo" alt="Logo Spotify">
       </div>
@@ -16,6 +16,18 @@
           :value="category">{{category}}</option>
         </select>
       </div>
+      <div class=" col-3 d-flex align-items-center justify-content-end ">
+        <select
+          v-model="categoryArtist"
+          @change="$emit('chooseCategoryArtist', categoryArtist)"
+          class="choose" >
+          <option value="" selected>Tutti gli album</option>
+          <option
+            v-for="(artist, index) in genreArtistCategory" 
+            :key="index"
+           :value="artist">{{artist}}</option>
+        </select>
+      </div>
     </div>
   </header>
 </template>
@@ -29,12 +41,14 @@ export default {
 
   props:{
     genreMusicCategory: Array,
+    genreArtistCategory: Array,
   },
   
   data(){
     return {
       logo: require("../assets/img/logo-spostify.png"),
       category: '',
+      categoryArtist: '',
     }
   },
 }

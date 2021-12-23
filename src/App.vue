@@ -2,12 +2,16 @@
   <div class="container-fluid">
 
     <Header
+      :genreMusicCategory="musicCategory"
+      :genreArtistCategory="musicArtistCategory"
       @chooseCategory="performCategory" 
-      :genreMusicCategory="musicCategory"/>
+      @chooseCategoryArtist="performCategoryArist"/>
 
     <AllPreview
       :selection="categoryChoose"
-      @musicGenre="genreMusic"/>
+      :select="categoryArtist"
+      @musicGenre="genreMusic"
+      @musicArtist="artistMusic"/>
 
   </div>
 </template>
@@ -27,7 +31,9 @@ export default {
   data(){
     return {
       categoryChoose: '',
+      categoryArtist: '',
       musicCategory:[],
+      musicArtistCategory:[],
     }
   },
 
@@ -37,10 +43,20 @@ export default {
       console.log('io sono app',text);
       console.log( this.categoryChoose);
     },
+    performCategoryArist(text){
+      this.categoryArtist = text;
+      console.log('io sono app',text);
+      console.log( this.categoryArtist);
+    },
 
     genreMusic(genre){
-      this.musicCategory = genre
+      this.musicCategory = genre;
       console.log(genre);
+    },
+
+    artistMusic(author){
+      this.musicArtistCategory = author;
+      console.log(author);
     }
   }
 }
