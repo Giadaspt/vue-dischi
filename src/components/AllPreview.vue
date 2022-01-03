@@ -59,10 +59,13 @@ export default {
         this.preview = response.data.response;
 
         this.preview.forEach(a =>{
-          if(!this.genreCategory.includes(a.genre) && !this.genreArtist.includes(a.author)){
-            this.genreArtist.push(a.author);
+          if(!this.genreCategory.includes(a.genre)){
             this.genreCategory.push(a.genre);
           } 
+
+          if (!this.genreArtist.includes(a.author)){
+            this.genreArtist.push(a.author);
+          }
         })
 
         this.$emit('musicGenre', this.genreCategory);
